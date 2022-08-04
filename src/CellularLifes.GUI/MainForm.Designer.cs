@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.FieldPanel = new System.Windows.Forms.PictureBox();
             this.StartBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.BInp = new System.Windows.Forms.TextBox();
+            this.SInp = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ClearBtn = new System.Windows.Forms.Button();
@@ -68,8 +68,8 @@
             this.FieldPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.FieldPanel.TabIndex = 0;
             this.FieldPanel.TabStop = false;
-            this.FieldPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FieldPanel_MouseDown);
-            this.FieldPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FieldPanel_MouseMove);
+            this.FieldPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDraw);
+            this.FieldPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseDraw);
             // 
             // StartBtn
             // 
@@ -82,21 +82,21 @@
             this.StartBtn.UseVisualStyleBackColor = true;
             this.StartBtn.Click += new System.EventHandler(this.StartBtn_Click);
             // 
-            // textBox1
+            // BInp
             // 
-            this.textBox1.Location = new System.Drawing.Point(37, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "3";
+            this.BInp.Location = new System.Drawing.Point(37, 12);
+            this.BInp.Name = "BInp";
+            this.BInp.Size = new System.Drawing.Size(100, 23);
+            this.BInp.TabIndex = 2;
+            this.BInp.Text = "3";
             // 
-            // textBox2
+            // SInp
             // 
-            this.textBox2.Location = new System.Drawing.Point(37, 46);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "2 3";
+            this.SInp.Location = new System.Drawing.Point(37, 46);
+            this.SInp.Name = "SInp";
+            this.SInp.Size = new System.Drawing.Size(100, 23);
+            this.SInp.TabIndex = 3;
+            this.SInp.Text = "23";
             // 
             // label1
             // 
@@ -184,11 +184,11 @@
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.resol);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.BInp);
             this.splitContainer1.Panel1.Controls.Add(this.PauseBtn);
             this.splitContainer1.Panel1.Controls.Add(this.VonNeumannBtn);
             this.splitContainer1.Panel1.Controls.Add(this.ClearBtn);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.SInp);
             this.splitContainer1.Panel1.Controls.Add(this.New);
             this.splitContainer1.Panel1.Controls.Add(this.StartBtn);
             this.splitContainer1.Panel1.Controls.Add(this.MooreBtn);
@@ -306,8 +306,8 @@
 
         private PictureBox FieldPanel;
         private Button StartBtn;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox BInp;
+        private TextBox SInp;
         private Label label1;
         private Label label2;
         private Button ClearBtn;
