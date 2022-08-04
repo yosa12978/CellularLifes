@@ -26,9 +26,42 @@ namespace CellularLifes.GUI
         public MainForm()
         {
             InitializeComponent();
+            InitializeField();
+
+        }
+
+        public void InitializeField()
+        {
+            INeighbourhood n = new MooreNeighbourhood();
+            if (MooreBtn.Checked)
+                n = new MooreNeighbourhood();
+            else if (VonNeumannBtn.Checked)
+                n = new VonNeumannNeighbourhood();
+
+            string[] bornt = textBox1.Text.Trim().Split(" ");
+            string[] survt = textBox2.Text.Trim().Split(" ");
+
+            if (textBox1.Text.Trim() == "")
+                bornt = Array.Empty<string>();
+            if (textBox2.Text.Trim() == "")
+                survt = Array.Empty<string>();
+
+            rule = new BSRule
+            {
+                Born = bornt.Length != 0 ? bornt.Select(x => Convert.ToInt32(x)).ToArray() : Array.Empty<int>(),
+                Surv = survt.Length != 0 ? survt.Select(x => Convert.ToInt32(x)).ToArray() : Array.Empty<int>(),
+                Neighbourhood = n
+            };
+
+            gen = 0;
+            GenText.Text = "Generation: " + gen.ToString();
+
             res = (int)resol.Value;
+
             f = new Field(FieldPanel.Width / res, FieldPanel.Height / res);
 
+            FieldPanel.Image = new Bitmap(FieldPanel.Width, FieldPanel.Height);
+            g = Graphics.FromImage(FieldPanel.Image);
         }
 
         private void Draw()
@@ -92,12 +125,6 @@ namespace CellularLifes.GUI
                 Neighbourhood = n
             };
 
-            FieldPanel.Image = new Bitmap(FieldPanel.Width, FieldPanel.Height);
-            g = Graphics.FromImage(FieldPanel.Image);
-            
-            //if (f == null)
-            //    New_Click(sender, e);
-
             Timer.Start();
         }
 
@@ -114,6 +141,7 @@ namespace CellularLifes.GUI
 
         private void ClearBtn_Click(object sender, EventArgs e)
         {
+            InitializeField();
             g.Clear(bg);
             gen = 0;
             GenText.Text = "Generation: " + gen.ToString();
@@ -123,14 +151,7 @@ namespace CellularLifes.GUI
 
         private void New_Click(object sender, EventArgs e)
         {
-            StartBtn_Click(sender, e);
-
-            gen = 0;
-            GenText.Text = "Generation: " + gen.ToString();
-
-            res = (int)resol.Value;
-
-            f = new Field(FieldPanel.Width / res, FieldPanel.Height / res);
+            InitializeField();
 
             Random random = new Random();
             for (int i = 0; i < f.Width; i++)
@@ -188,12 +209,12 @@ namespace CellularLifes.GUI
 
         private void resol_ValueChanged(object sender, EventArgs e)
         {
-            f = new Field(FieldPanel.Width / res, FieldPanel.Height/res);
+            InitializeField();
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            Timer.Interval = (int)numericUpDown1.Value;
+            Timer.Interval = (int)trackBar1.Value;
         }
     }
 }

@@ -41,7 +41,7 @@
             this.VonNeumannBtn = new System.Windows.Forms.RadioButton();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.GenText = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resol)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +72,6 @@
             // 
             // StartBtn
             // 
-            this.StartBtn.Enabled = false;
             this.StartBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.StartBtn.Location = new System.Drawing.Point(247, 12);
             this.StartBtn.Name = "StartBtn";
@@ -88,6 +87,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 23);
             this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "3";
             // 
             // textBox2
             // 
@@ -95,6 +95,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 23);
             this.textBox2.TabIndex = 3;
+            this.textBox2.Text = "2 3";
             // 
             // label1
             // 
@@ -118,7 +119,6 @@
             // 
             // ClearBtn
             // 
-            this.ClearBtn.Enabled = false;
             this.ClearBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ClearBtn.Location = new System.Drawing.Point(376, 12);
             this.ClearBtn.Name = "ClearBtn";
@@ -171,13 +171,14 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.numericUpDown1);
+            this.splitContainer1.Panel1.Controls.Add(this.trackBar1);
             this.splitContainer1.Panel1.Controls.Add(this.GenText);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
@@ -204,28 +205,17 @@
             this.splitContainer1.SplitterDistance = 77;
             this.splitContainer1.TabIndex = 10;
             // 
-            // numericUpDown1
+            // trackBar1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(656, 30);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 23);
-            this.numericUpDown1.TabIndex = 13;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.trackBar1.Location = new System.Drawing.Point(656, 30);
+            this.trackBar1.Maximum = 500;
+            this.trackBar1.Minimum = 10;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(104, 45);
+            this.trackBar1.TabIndex = 14;
+            this.trackBar1.TickFrequency = 10;
+            this.trackBar1.Value = 50;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // GenText
             // 
@@ -284,7 +274,7 @@
             this.New.Name = "New";
             this.New.Size = new System.Drawing.Size(123, 23);
             this.New.TabIndex = 1;
-            this.New.Text = "New";
+            this.New.Text = "Random";
             this.New.UseVisualStyleBackColor = true;
             this.New.Click += new System.EventHandler(this.New_Click);
             // 
@@ -304,7 +294,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resol)).EndInit();
             this.ResumeLayout(false);
 
@@ -328,7 +318,7 @@
         private NumericUpDown resol;
         private Label GenText;
         private Button New;
-        private NumericUpDown numericUpDown1;
         private Label label4;
+        private TrackBar trackBar1;
     }
 }
