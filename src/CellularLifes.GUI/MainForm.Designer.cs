@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.FieldPanel = new System.Windows.Forms.PictureBox();
             this.StartBtn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -285,6 +286,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1369, 669);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Cellular Lifes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
