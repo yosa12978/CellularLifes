@@ -4,6 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/yosa12978/CellularLifes)](https://github.com/yosa12978/CellularLifes/network)
 [![GitHub stars](https://img.shields.io/github/stars/yosa12978/CellularLifes)](https://github.com/yosa12978/CellularLifes/stargazers)
 [![GitHub license](https://img.shields.io/github/license/yosa12978/CellularLifes)](https://github.com/yosa12978/CellularLifes/blob/master/LICENSE)
+![GitHub all releases](https://img.shields.io/github/downloads/yosa12978/CellularLifes/total)
 
 A program for play to game of life and its other modifications
 
